@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<title>Promise Assignment</title>
+</head>
+
+<body>
+    <header>
+        <h1>Promise Assignment</h1>
+    </header>
+    <main>
+        <div id ="container">     
+        </div>
+    </main> 
+    <footer></footer>
+    <script>
+
+        function handleFulfilled(value) {
+            console.log(value)
+            alert(value)
+        }
+
+        function handleRejection(reason)  {
+            console.log(value)
+            alert(value)
+        }
+    
+        function syntheticAjax(resolve, reject){
+            let myReturn = false;
+            return setTimeout(()=>{
+                myReturn = true;
+                console.log(myReturn, 'true')
+                resolve (myReturn)
+             },
+             1000); 
+             reject (myReturn)
+             return myReturn
+        
+            }
+
+            const myPromise = (
+                new Promise(()=>{syntheticAjax(handleFulfilled, handleRejection)})
+            )
+            console.log (myPromise)
+    
+            document.getElementById('container').innerHTML = myPromise
+
+
+
+</script>
+</body>
+</html>
+
